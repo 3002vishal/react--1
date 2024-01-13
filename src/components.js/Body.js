@@ -23,10 +23,10 @@ const Body = () => {
     const json = await data.json();
     console.log("fetch called");
     setlistofrestaurant(
-      json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setcopyrestaurant(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     
   };
@@ -39,7 +39,7 @@ const Body = () => {
     );
   }
 
-  if (listofrestaurant.length == 0) {
+  if (listofrestaurant.length== 0) {
     return <Shimmer />;
   }
   console.log( listofrestaurant,"listofrestaurant ");

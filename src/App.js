@@ -8,12 +8,16 @@ import {  createBrowserRouter,RouterProvider,Outlet } from "react-router-dom"
 import Error from "./components.js/Error"
 import RestaurantMenu from "./components.js/Restaurantmenu"
 import Cart from "./components.js/Cart"
+import { Provider } from "react-redux"
+import appStore from "./utils/appStore"
 const AppLayout= () => {
   return (
+    <Provider store = {appStore}>
       <div className="app">
-          {Header()}
+          <Header/>
           <Outlet/>
           </div>
+    </Provider>
 
   )
 }
@@ -43,7 +47,8 @@ const appRouter = createBrowserRouter(
           path : "/cart",
           element: <Cart/>,
 
-        }
+        },
+      
 
       ],
 

@@ -3,9 +3,12 @@ import { LOGO_URL } from "../utils/constanta";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStaus from "../utils/useOnlineStatus";
+import { useSelector } from "react-redux";
 const Header = () => {
   const onlineStatus = useOnlineStaus();
   const [btnName, setbtnName] = useState("login");
+  const cartitems = useSelector((store) => store.cart.items  )
+  //console.log(cartitems,"cartitems")
   return (
     <div className=" flex bg-pink-200 ">
       <div className="w-[50%]">
@@ -19,11 +22,11 @@ const Header = () => {
           <li>
             <Link to="/about"> About us</Link>
           </li>
-          <li>
-            <Link to="/contact">Contact us</Link>
+          <li className="font-bold">
+            <Link to="/contact" >Contact us</Link>
           </li>
           <li>
-          <Link to="/cart">Cart</Link>
+          <Link to="/cart" className="font-bold text-xl">Cart({cartitems.length} )</Link>
   
             </li>
           <button
